@@ -1,20 +1,20 @@
-#ifndef "SOLICITANTE_H"
-#define "SOLICITANTE_H"
+#ifndef SOLICITANTE_H
+#define SOLICITANTE_H
 #include <string>
 
 class Solicitante{
     private:
-        string identificacion;
-        string tipoDeSangre;
+        std::string identificacion;
+        std::string tipoDeSangre;
     public:
         Solicitante();
-        std::int RegistrarSolicitante(string identificacion, string tipoDeSangre );
-        string MostrarSolicitantes(string listaSolicitantes);
+        int RegistrarSolicitante(std::string identificacion, std::string tipoDeSangre );
+        std::string MostrarSolicitantes(std::string listaSolicitantes);
         //zona de setters
-        setId();
-        SetTipoSanguineo();
+        void setId();
+        void SetTipoSanguineo();
         //zona de geters
-        getTipoSanguineo();
+        std::string getTipoSanguineo();
 
 
 };

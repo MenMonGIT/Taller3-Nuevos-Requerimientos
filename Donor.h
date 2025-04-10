@@ -1,54 +1,39 @@
-
-/*
-    Clase: Donor
-    Curso: Fundamentos de Programación Orientada a Objetos (FPOO)
-    Universidad del Valle
-
-    Información CRC:
-    
-    Clase: Donor
-
-    Responsabilidades:
-        - Almacenar y gestionar la información de un donante, 
-          incluyendo detalles como nombre, tipo de sangre, 
-          distrito de residencia y otros datos relevantes.
-        - Proveer métodos para obtener y manipular dicha información, 
-          como  obtener datos del donante.
-        - Ofrecer funcionalidades para procesar y mostrar la información 
-          de los donantes en formato adecuado.
-    
-    Colaboradores:
-        - Colabora con la clase BloodDatabase, que gestiona una colección 
-          de objetos Donor para administrar la base de datos de donantes 
-          de sangre.
-
-    Este es un proyecto del curso FPOO de la Universidad del Valle, 
-    desarrollado con fines académicos. Puede ser utilizado con fines 
-    académicos dando los créditos de la autoría.
-
-    El código se basó en el proyecto BloodDatabase, fue traducido al español 
-    y adaptado a las necesidades del curso.
-
-    Autor: Victor Bucheli
-    Correo: victor.bucheli@correounivalle.edu.co
-    Fecha: Octubre 2024
-*/
 #ifndef DONOR_H
 #define DONOR_H
 
 #include <string>
+#include <stdexcept>  
+#include <algorithm>  
 
+//Esta clase representa a un donante de sangre con atributos como ID, nombre, dirección, distrito, tipo de sangre y número de contacto
 class Donor {
-public:
-    int donorId, district, number;
-    std::string name, address, bloodType;
-
-    void donorDetails() const;
-
-    static Donor parseLine(const std::string& line);
-
 private:
-    static std::string trim(const std::string& str);
+    // Atributos privados para garantizar encapsulamiento
+    int donorId, district;
+    std::string name, address, bloodType, number;
+
+public:
+    // Getters: Métodos para obtener los valores de los atributos privados
+    int getDonorId() const { return donorId; }
+    std::string getName() const { return name; }
+    std::string getAddress() const { return address; }
+    std::string getBloodType() const { return bloodType; } 
+    std::string getNumber() const { return number; }       
+    int getDistrict() const { return district; }
+
+    // Setters: Métodos para modificar los valores de los atributos privados
+    void setDonorId(int id) { donorId = id; }
+    void setName(const std::string& n) { name = n; }
+    void setAddress(const std::string& addr) { address = addr; }
+    void setBloodType(const std::string& blood, bool validate = true); // Asigna tipo de sangre (opcionalmente valida)
+    void setNumber(const std::string& num, bool validate = true); // Asigna número de contacto (validate no implementado)
+    void setDistrict(int dist) { district = dist; }
+
+    // Muestra los detalles del donante (nombre, distrito y tipo de sangre)
+    void donorDetails() const; 
+
+    // Convierte una línea de texto en un objeto Donor
+    static Donor parseLine(const std::string& line);  
 };
 
-#endif // DONOR_H
+#endif
