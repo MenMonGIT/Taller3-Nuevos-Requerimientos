@@ -33,7 +33,7 @@ std::string Utils::getValidatedBloodType(const std::string& prompt) {
     };
     std::string input;
     while (true) {
-        std::cout << prompt;
+        std::cout << prompt<<std::endl;
         std::getline(std::cin, input);
         if (std::find(validBloodTypes.begin(), validBloodTypes.end(), input) != validBloodTypes.end()) {
             return input; 

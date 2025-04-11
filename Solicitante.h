@@ -6,6 +6,7 @@ class Solicitante{
     private:
         std::string identificacion;
         std::string tipoDeSangre;
+        std::string nombre;
     public:
         Solicitante();
         int RegistrarSolicitante(std::string identificacion, std::string tipoDeSangre );

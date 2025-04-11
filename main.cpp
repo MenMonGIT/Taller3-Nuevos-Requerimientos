@@ -45,6 +45,7 @@ FECHA DE ÚLTIMA MODIFICACIÓN: 22/03/25
 #include <limits>
 #include <string>
 #include "GetApi.h"
+#include "Solicitante.h"
 using namespace std;
 
 //Funcion principal del programa
@@ -53,6 +54,7 @@ int main() {
     DonorManager donorManager("data.txt");
     UserInterface ui;
     GetApi api1;
+    Solicitante solicitante1;
     string a="300";//variable de pruebas
     int choice;
 
@@ -97,7 +99,11 @@ int main() {
         case 5:
             ui.clearConsole();
             std::cout << "Gracias por usar el Sistema de la Cruz Roja" << std::endl;
-            return 0;  
+            return 0;
+        case 6:
+            cout<<"pruebas para solicitante: "<<endl;
+            solicitante1.RegistrarSolicitante("123","a+");
+            break;
         default:
             cout << "Opción no válida. Inténtalo de nuevo.\n";
             ui.waitForKeyPress();
